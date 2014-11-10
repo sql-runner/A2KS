@@ -1,14 +1,14 @@
-<%= form_for :user do |form| %>
+<%= form_for :user, url: page_path("dashboard"), html: { method: :get } do |form| %>
 
-  <div>
+  <div class="formfields">
     <%= form.label :email %>
     <%= form.email_field :email %>
   </div>
-  <div>
+  <div class="formfields">
     <%= form.label :password %>
     <%= form.password_field :password %>
   </div>
-  <div>
+  <div class="formfields">
     <%= form.submit "Sign up" %>
   </div>
 <% end %>

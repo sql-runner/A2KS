@@ -2,10 +2,10 @@
 
 <div>
   <% if signed_in? %>
-    <%= button_to "Sign out", page_path("session"), method: :delete %>
+    <%= button_to "Sign out", page_path("session"), method: :delete, class: "signout" %>
   <% else %>
-    <%= button_to "Sign in", page_path("new_session"), method: :get %>
-    <%= button_to "Sign up", page_path("new_user"), method: :get %>
+    <%= button_to "Sign in", page_path("new_session"), method: :get, class: "signin" %>
+    <%= button_to "Sign up", page_path("new_user"), method: :get, class: "signup" %>
   <% end %>
 </div>
 

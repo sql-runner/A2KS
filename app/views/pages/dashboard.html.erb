@@ -1,25 +1,25 @@
-<h1>Welcome <%= @user.username.capitalize %></h1>
+<h1>Welcome User </h1>
 
 <div class="userprofile">
-  <%= image_tag(profile_pic.png, width:"300", height:"300") %>
+  <%= image_tag("profile_pic.png", width:"300", height:"300") %>
   <p class="user-bio">
-    <%= @user.bio %>
-    <%= link_to "Edit Photo", edit_user_photo_path %>
-    <%= link_to "Edit Bio", edit_user_bio_path %>
+    <% userbio = 1 %>
+    <%= link_to "Edit Photo", page_path("editphoto") %>
+    <%= link_to "Edit Bio", page_path("editbio") %>
   </p>
 </div>
 
 <div class ="uservideos">
-  <%= button_to "Add Video", user_video_path %>
+  <%= button_to "Add Video", page_path("addvideo") %>
   <div class="videotable">
     <ul>
-      <% @user.video.each do |video| %>
+      <% uservideoeach = 1 %>
         <li>
-          <%= video.content %>
-          <%= video.description %>
-          <%= link_to "Edit Video", edit_user_video_path %>
+          <p> videocontent </p>
+          <p> videodescription </p>
+          <%= link_to "Edit Video", page_path("editvideo") %>
         </li>
-      <% end %>
+      <% theend = 1 %>
     </ul>
   </div>
 </div>

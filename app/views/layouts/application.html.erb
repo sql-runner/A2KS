@@ -7,7 +7,7 @@
     <%= csrf_meta_tags %>
   </head>
   <body>
-    <fieldset>
+    <fieldset class="header">
       <%= form_tag page_path("search"), method: :get do %>
         <%= search_field_tag :search, params[:search], placeholder: "SEARCH" %>
         <%= submit_tag "GO" %>
@@ -15,10 +15,10 @@
     </fieldset>
 
     <%= yield %>
-    <fieldset>
-      <%= link_to "Home", page_path("home") %>
-      <%= link_to "About", page_path("about") %>
-      <%= link_to "Contact", page_path("contact") %>
+    <fieldset class="footer">
+      <%= link_to "Home", page_path("home"), class: "home" %>
+      <%= link_to "About", page_path("about"), class: "about" %>
+      <%= link_to "Contact", page_path("contact"), class: "contact" %>
     </fieldset>
   </body>
 </html>

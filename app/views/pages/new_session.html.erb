@@ -1,4 +1,4 @@
-<%= form_for :session, url: page_path("new_session") do |form| %>
+<%= form_for :session, url: page_path("dashboard"), html: { method: :get } do |form| %>
   <div>
     <%= form.label :email %>
     <%= form.email_field :email %>
