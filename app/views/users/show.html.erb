@@ -1,13 +1,20 @@
 <h1>Welcome User </h1>
 
 <div class="userprofile">
-  <%= image_tag("profile_pic.png", width:"300", height:"300") %>
+  <%= image_tag @user.avatar.url(:medium) %>
   <p class="user-bio">
     <% userbio = 1 %>
     <%= link_to "Edit Photo", page_path("editphoto") %>
     <%= link_to "Edit Bio", page_path("editbio") %>
   </p>
 </div>
+
+<fieldset>
+  <%= form_for @user, :url => user_path, :html => { :multipart => true } do |form| %>
+    <%= form.file_field :avatar %>
+    <%= form.submit "Photo" %>
+  <% end %>
+</fieldset>
 
 <div class ="uservideos">
   <%= button_to "Add Video", page_path("addvideo") %>

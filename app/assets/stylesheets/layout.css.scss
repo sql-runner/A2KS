@@ -1,9 +1,26 @@
+body {
+  @include linear-gradient(to left, darkgray, teal);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  margin: 5;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
 div.container {
   @include outer-container;
 }
 
 div.element {
   @include span-columns(6);
+}
+
+h1 {
+    font-family: $helvetica;
+    font-size: golden-ratio(30px,  1);
+    @include outer-container;
+    @include span-columns(8);
+    @include shift(5);
 }
 
 ul {
@@ -13,14 +30,4 @@ ul {
 li.block {
   @include span-columns(3);
   @include omega(4n);
-}
-body {
-  @include linear-gradient(to left, darkgray, teal);
-}
-h1 {
-    font-family: $helvetica;
-    font-size: golden-ratio(30px,  1);
-    @include outer-container;
-    @include span-columns(8);
-    @include shift(5);
 }
