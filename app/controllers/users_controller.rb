@@ -6,6 +6,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @user = User.find(params[:id])
   end
 
   def create
@@ -19,10 +20,16 @@ class UsersController < ApplicationController
     end
   end
 
+  def update
+    the_user = User.find(params[:id])
+    @user = the_user.update(user_params)
+    redirect_to :back
+  end
+
   private
 
   def user_params
-    params.require(:user).permit(:email, :password)
+    params.require(:user).permit(:email, :password, :avatar)
   end
 end
 
