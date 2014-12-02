@@ -60,8 +60,6 @@ GEM
       bcrypt
       rails
       warden
-    monban-generators (0.0.4)
-      monban (>= 0.0.12)
     multi_json (1.10.1)
     neat (1.5.1)
       bourbon (>= 3.1)
@@ -132,7 +130,6 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   monban
-  monban-generators
   neat
   pg
   rails (= 4.1.6)
