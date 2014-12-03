@@ -1,18 +1,22 @@
-<h1>Welcome User </h1>
+<h1><%= @user.username %>'s Page</h1>
 
 <div class="userprofile">
   <%= image_tag @user.avatar.url(:medium) %>
   <p class="user-bio">
     <% userbio = 1 %>
-    <%= link_to "Edit Photo", page_path("editphoto") %>
-    <%= link_to "Edit Bio", page_path("editbio") %>
+    <% if current_user.check_user(@user) %>
+      <%= link_to "Edit Photo", page_path("editphoto") %>
+      <%= link_to "Edit Bio", page_path("editbio") %>
+    <% end %>
   </p>
 </div>
 
 <fieldset>
-  <%= form_for @user, :url => user_path, :html => { :multipart => true } do |form| %>
-    <%= form.file_field :avatar %>
-    <%= form.submit "Photo" %>
+  <% if current_user.check_user(@user) %>
+    <%= form_for @user, url: user_path, html: { multipart: true } do |form| %>
+      <%= form.file_field :avatar %>
+      <%= form.submit "Photo" %>
+    <% end %>
   <% end %>
 </fieldset>
 
