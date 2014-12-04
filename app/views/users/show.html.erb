@@ -3,19 +3,21 @@
 <div class="userprofile">
   <%= image_tag @user.avatar.url(:medium) %>
   <p class="user-bio">
-    <% userbio = 1 %>
-    <% if current_user.check_user(@user) %>
-      <%= link_to "Edit Photo", page_path("editphoto") %>
-      <%= link_to "Edit Bio", page_path("editbio") %>
-    <% end %>
+    <%= @user.bio_content %>
   </p>
+  <% if current_user.check_user(@user) %>
+    <%= form_for @user do |form| %>
+      <%= form.text_area :bio_content %>
+      <%= form.submit "Enter Bio" %>
+    <% end %>
+  <% end %>
 </div>
 
 <fieldset>
   <% if current_user.check_user(@user) %>
     <%= form_for @user, url: user_path, html: { multipart: true } do |form| %>
       <%= form.file_field :avatar %>
-      <%= form.submit "Photo" %>
+      <%= form.submit "Submit Photo" %>
     <% end %>
   <% end %>
 </fieldset>
