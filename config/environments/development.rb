@@ -40,8 +40,8 @@ Rails.application.configure do
     storage: :s3,
     s3_credentials: {
       bucket: "a2ksdev",
-      access_key_id: ENV['S3_KEY'],
-      secret_access_key: ENV['S3_SECRET']
+      access_key_id: ENV["S3_KEY"],
+      secret_access_key: ENV["S3_SECRET"]
     }
   }
 
