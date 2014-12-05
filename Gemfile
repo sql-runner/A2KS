@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'aws-sdk'
 gem 'bourbon'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'high_voltage', '~> 2.2.1'
