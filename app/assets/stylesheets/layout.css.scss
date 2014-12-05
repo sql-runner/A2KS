@@ -12,15 +12,19 @@ div.container {
 }
 
 div.element {
-  @include span-columns(6);
+  @include span-columns(7);
 }
 
 h1 {
-    font-family: $helvetica;
-    font-size: golden-ratio(30px,  1);
-    @include outer-container;
-    @include span-columns(8);
-    @include shift(5);
+  font-family: $helvetica;
+  font-size: golden-ratio(30px,  1);
+  @include outer-container;
+  @include span-columns(9);
+  @include shift(4)
+}
+
+.videoshow {
+  @include shift(5);
 }
 
 ul {

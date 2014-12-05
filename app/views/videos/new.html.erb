@@ -1,0 +1,16 @@
+<%= form_for ([@user, @video]), url: { action: "create" }, html: { multipart: true }  do |form| %>
+  <div>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+  <div>
+    <%= form.label :description %>
+    <%= form.text_area :description %>
+  </div>
+  <div>
+    <%= form.file_field :media %>
+  </div>
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
