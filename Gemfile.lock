@@ -28,6 +28,8 @@ GEM
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
     arel (5.0.1.20140414130214)
+    av (0.7.1)
+      cocaine
     aws-sdk (1.59.1)
       aws-sdk-v1 (= 1.59.1)
     aws-sdk-v1 (1.59.1)
@@ -49,6 +51,9 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.8.0)
+    dotenv (1.0.2)
+    dotenv-rails (1.0.2)
+      dotenv (= 1.0.2)
     erubis (2.7.0)
     execjs (2.2.2)
     high_voltage (2.2.1)
@@ -81,6 +86,9 @@ GEM
       activesupport (>= 3.0.0)
       cocaine (~> 0.5.3)
       mime-types
+    paperclip-av-transcoder (0.6.2)
+      av (>= 0.7.1)
+      paperclip (>= 2.5.2)
     pg (0.17.1)
     rack (1.5.2)
     rack-test (0.6.2)
@@ -144,12 +152,14 @@ DEPENDENCIES
   aws-sdk
   bourbon
   coffee-rails (~> 4.0.0)
+  dotenv-rails
   high_voltage (~> 2.2.1)
   jbuilder (~> 2.0)
   jquery-rails
   monban
   neat
   paperclip
+  paperclip-av-transcoder
   pg
   rails (= 4.1.6)
   rails_12factor
