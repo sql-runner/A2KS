@@ -5,34 +5,34 @@
   <p class="user-bio">
     <%= @user.bio_content %>
   </p>
-  <% if current_user.check_user(@user) %>
-    <%= form_for @user do |form| %>
-      <%= form.text_area :bio_content %>
-      <%= form.submit "Enter Bio" %>
-    <% end %>
-  <% end %>
 </div>
 
 <fieldset>
-  <% if current_user.check_user(@user) %>
+  <% if current_user.validate_user(@user) %>
     <%= form_for @user, url: user_path, html: { multipart: true } do |form| %>
-      <%= form.file_field :avatar %>
-      <%= form.submit "Submit Photo" %>
+      <div>
+        <%= form.text_area :bio_content %>
+      </div>
+      <div>
+        <%= form.file_field :avatar %>
+      </div>
+      <div>
+        <%= form.submit "Update User Info" %>
+      </div>
     <% end %>
   <% end %>
 </fieldset>
 
 <div class ="uservideos">
-  <%= button_to "Add Video", page_path("addvideo") %>
+  <%= button_to "Add Video", new_user_video_path(current_user), method: :get %>
   <div class="videotable">
     <ul>
-      <% uservideoeach = 1 %>
+      <% @user.videos.each do |video| %>
         <li>
-          <p> videocontent </p>
-          <p> videodescription </p>
-          <%= link_to "Edit Video", page_path("editvideo") %>
+          <p> <%= video.name %> </p>
+          <p> <%= video.description %> </p>
         </li>
-      <% theend = 1 %>
+      <% end %>
     </ul>
   </div>
 </div>
