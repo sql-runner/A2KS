@@ -9,6 +9,7 @@ class VideosController < ApplicationController
     the_video = user.videos.new(find_video_params)
 
     if the_video.save
+      the_video.elastic_transcode
       redirect_to user_path(user)
     else
       render :new
