@@ -1,5 +1,13 @@
-<h1><%= video.name %></h1>
+<h1><%= @video.name %></h1>
 
 <div>
+  <video class="video-js vjs-default-skin"
+      controls preload="auto"
+      data-setup='{"example_option":true}'>
+      <source src=<%= "#{@video.media.url(:large)}" %> type='video/flv' />
+  </video>
+</div>
 
+<div>
+  <%= @video.description %>
 </div>

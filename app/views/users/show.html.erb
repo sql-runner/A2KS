@@ -29,7 +29,7 @@
     <ul>
       <% @user.videos.each do |video| %>
         <li>
-          <p> <%= video.name %> </p>
+        <p><%= link_to "#{video.name}", user_video_path(@user, video) %> </p>
           <p> <%= video.description %> </p>
         </li>
       <% end %>

@@ -8,7 +8,8 @@ class Video < ActiveRecord::Base
                convert_options: {output: {ar: 44100}}
       }
     },
-    processors: [:transcoder]
+    processors: [:transcoder],
+    use_timestamp: false
 
   do_not_validate_attachment_file_type :media
   belongs_to :user
