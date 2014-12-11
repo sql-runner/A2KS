@@ -1,6 +1,7 @@
 class Video < ActiveRecord::Base
   has_attached_file(
-    :media, path: "/:class/:id/:filename",
+    :media,
+    path: "/:class/:id/:filename",
     processors: [:transcoder],
     use_timestamp: false
   )
@@ -8,5 +9,4 @@ class Video < ActiveRecord::Base
   validates :name, presence: true
   validates :description, presence: true
   belongs_to :user
-
 end
