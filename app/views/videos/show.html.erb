@@ -1,13 +1,13 @@
 <h1><%= @video.name %></h1>
 
-<div>
+<div class = "videoshow">
   <video class="video-js vjs-default-skin"
-      controls preload="auto"
-      data-setup='{"example_option":true}'>
-      <source src=<%= "#{@video.media.url}.mp4" %> type='video/mp4' />
+    controls preload="auto"
+    data-setup='{"example_option":true}'>
+    <source src=<%= "#{@video.media.url}.mp4" %> type='video/mp4' />
   </video>
 </div>
 
-<div>
+<div class = "videoshow">
   <p> <%= @video.description %> </p>
 </div>

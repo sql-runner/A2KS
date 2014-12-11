@@ -6,10 +6,10 @@ class VideosController < ApplicationController
 
   def create
     user = User.find_by(username: params[:user_id])
-    the_video = user.videos.new(find_video_params)
+    video = user.videos.new(find_video_params)
 
-    if the_video.save
-      the_video.elastic_transcode
+    if video.save
+      ElasticTranscoder.new(video).transcode!
       redirect_to user_path(user)
     else
       render :new
