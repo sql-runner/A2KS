@@ -20,18 +20,24 @@ h1 {
   font-size: golden-ratio(30px,  1);
   @include outer-container;
   @include span-columns(9);
-  @include shift(4)
-}
-
-.videoshow {
-  @include shift(5);
-}
-
-ul {
-  @include outer-container;
+  @include shift(3)
 }
 
 li.block {
   @include span-columns(3);
   @include omega(4n);
 }
+
+p {
+  font-family: $helvetica;
+  font-size: golden-ratio(15px,  1);
+}
+
+.userprofile, .videoshow {
+  @include shift(3);
+}
+
+ul {
+  @include outer-container;
+}
+

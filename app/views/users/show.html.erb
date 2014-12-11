@@ -24,7 +24,9 @@
 </fieldset>
 
 <div class ="uservideos">
-  <%= button_to "Add Video", new_user_video_path(current_user), method: :get %>
+  <% if current_user.validate_user(@user) %>
+    <%= button_to "Add Video", new_user_video_path(current_user), method: :get %>
+  <% end %>
   <div class="videotable">
     <ul>
       <% @user.videos.each do |video| %>
