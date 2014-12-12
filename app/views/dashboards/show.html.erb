@@ -1,23 +1,36 @@
-<h1>A2KS</h1>
+<h1>This is <%= current_user.username %></h1>
 
-<div>
-  <p>
-    Fan Favorite Video
-  </p>
-  <table>
-    <tr>
-      <p>HTML5_VIDEO_PLAYER</p>
-    </tr>
-  </table>
-</div>
-
-<div>
-  <h3>
-    A2KS: A 2 minute Klip Share
-  </h3>
-  <p>
-    This is a sharing website which provides a way to share video clips between 
-    one and two minutes.
+<div class="userprofile">
+  <%= image_tag current_user.avatar.url(:medium) %>
+  <p class="user-bio">
+    <%= current_user.bio_content %>
   </p>
 </div>
 
+<fieldset>
+  <%= form_for current_user do |form| %>
+    <div>
+      <%= form.text_area :bio_content %>
+    </div>
+    <div>
+      <%= form.file_field :avatar %>
+    </div>
+    <div>
+      <%= form.submit "Update User Info" %>
+    </div>
+  <% end %>
+</fieldset>
+
+<div class ="uservideos">
+  <%= button_to "Add Video", new_video_path, method: :get %>
+  <div class="videotable">
+    <ul>
+      <% current_user.videos.each do |video| %>
+        <li>
+        <p> <%= link_to video.name, video_path(video) %> </p>
+        <p> <%= video.description %> </p>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

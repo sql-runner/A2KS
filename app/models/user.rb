@@ -7,10 +7,6 @@ class User < ActiveRecord::Base
 
   has_many :videos
 
-  def validate_user(user)
-    self == user
-  end
-
   def to_param
     username
   end

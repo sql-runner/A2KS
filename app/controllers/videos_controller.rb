@@ -1,16 +1,16 @@
 class VideosController < ApplicationController
+  before_action :require_login
+
   def new
-    @user = User.find_by(username: params[:user_id])
     @video = Video.new
   end
 
   def create
-    user = User.find_by(username: params[:user_id])
-    video = user.videos.new(find_video_params)
+    video = current_user.videos.new(find_video_params)
 
     if video.save
       ElasticTranscoder.new(video).transcode!
-      redirect_to user_path(user)
+      redirect_to dashboard_path
     else
       render :new
     end

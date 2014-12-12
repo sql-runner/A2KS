@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
     user = authenticate_session(session_params)
 
     if sign_in(user)
-      redirect_to user_path(user)
+      redirect_to dashboard_path
     else
       render :new
     end
