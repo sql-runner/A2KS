@@ -7,7 +7,7 @@ class VideosController < ApplicationController
   end
 
   def create
-    user = User.find_by(username: params[:user_id])
+    user = find_user_owner
     video = user.videos.new(find_video_params)
 
     if video.save

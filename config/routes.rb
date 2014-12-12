@@ -3,7 +3,8 @@ require "monban/constraints/signed_out"
 
 Rails.application.routes.draw do
 
-  root "dashboards#show"
+  root "dashboards#index"
+  resource :dashboard, only: [:show, :index]
   resource :session, only: [:new, :create, :destroy]
   resources :users, only: [:new, :create, :show, :update] do
     resources :videos
