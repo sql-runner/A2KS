@@ -1,18 +1,16 @@
 class VideosController < ApplicationController
   before_action :require_login
-  before_action :allow_user, only: [:new, :create]
 
   def new
     @video = Video.new
   end
 
   def create
-    user = find_user_owner
-    video = user.videos.new(find_video_params)
+    video = current_user.videos.new(find_video_params)
 
     if video.save
       ElasticTranscoder.new(video).transcode!
-      redirect_to user_path(user)
+      redirect_to dashboard_path
     else
       render :new
     end
@@ -23,16 +21,6 @@ class VideosController < ApplicationController
   end
 
   private
-
-  def allow_user
-    unless current_user == find_user_owner
-      render "public/404.html"
-    end
-  end
-
-  def find_user_owner
-    @user = User.find_by(username: params[:user_id])
-  end
 
   def find_video
     Video.find(params[:id])

@@ -22,12 +22,12 @@
 </fieldset>
 
 <div class ="uservideos">
-  <%= button_to "Add Video", new_user_video_path(current_user), method: :get %>
+  <%= button_to "Add Video", new_video_path, method: :get %>
   <div class="videotable">
     <ul>
       <% current_user.videos.each do |video| %>
         <li>
-        <p> <%= link_to video.name, user_video_path(current_user, video) %> </p>
+        <p> <%= link_to video.name, video_path(video) %> </p>
         <p> <%= video.description %> </p>
         </li>
       <% end %>
