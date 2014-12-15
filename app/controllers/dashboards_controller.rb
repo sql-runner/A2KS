@@ -3,5 +3,6 @@ class DashboardsController < ApplicationController
   end
 
   def show
+    @activities = current_user.recent_activities(5)
   end
 end
