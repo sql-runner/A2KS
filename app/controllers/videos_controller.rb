@@ -3,11 +3,17 @@ class VideosController < ApplicationController
 
   def new
     @video = Video.new
+    @tags = ActsAsTaggableOn::Tag.all
   end
 
   def create
-    VideoUpdater.new(current_user).create(find_video_params)
-    redirect_to dashboard_path
+    @video_updater = VideoUpdater.new(current_user)
+
+    if @video_updater.create(find_video_params)
+      redirect_to dashboard_path
+    else
+      render :new
+    end
   end
 
   def show
@@ -24,7 +30,8 @@ class VideosController < ApplicationController
     params.require(:video).permit(
       :description,
       :media,
-      :name
+      :name,
+      :tag_list
     )
   end
 end

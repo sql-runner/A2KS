@@ -1,4 +1,5 @@
 class Video < ActiveRecord::Base
+  acts_as_taggable
   has_attached_file(
     :media,
     path: "/:class/:id/:filename",

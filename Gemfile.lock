@@ -27,6 +27,8 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
+    acts-as-taggable-on (3.4.2)
+      activerecord (>= 3.2, < 5)
     arel (5.0.1.20140414130214)
     av (0.7.1)
       cocaine
@@ -149,6 +151,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  acts-as-taggable-on
   aws-sdk
   bourbon
   coffee-rails (~> 4.0.0)
