@@ -1,5 +1,5 @@
 class SearchesController < ApplicationController
   def show
-    @search_results = (Video.where(params[:search]))
+    @videos = Video.search_results(params[:search])
   end
 end

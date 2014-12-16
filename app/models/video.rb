@@ -9,4 +9,8 @@ class Video < ActiveRecord::Base
   validates :name, presence: true
   validates :description, presence: true
   belongs_to :user
+
+  def self.search_results(params)
+    where("description ILIKE ?", "%#{params}%")
+  end
 end

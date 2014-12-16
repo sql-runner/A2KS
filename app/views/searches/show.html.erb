@@ -1,12 +1,6 @@
 <h1>Search Results</h1>
 
 <ul class="searchresults">
-  <% videosseachdovideo = 1   %> 
-    <li class="onesearchresult">
-    <p> <%= @search %> </p>
-      <p> video.description </p>
-      <p> video.thumbnail </p>
-    </li>
-  <% theend = 1 %>
+  <%= render @videos %>
 </ul>
 
