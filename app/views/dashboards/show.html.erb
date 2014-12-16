@@ -8,6 +8,14 @@
 </div>
 
 <fieldset>
+  <p> Your Activity Feed </p>
+  <ul>
+    <%= render @activities %>
+  </ul>
+</fieldset>
+
+
+<fieldset>
   <%= form_for current_user do |form| %>
     <div>
       <%= form.text_area :bio_content %>

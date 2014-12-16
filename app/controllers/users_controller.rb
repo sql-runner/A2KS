@@ -7,7 +7,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find_by(username: params[:id])
+    @user = find_user
   end
 
   def create
@@ -22,11 +22,15 @@ class UsersController < ApplicationController
   end
 
   def update
-    current_user.update(user_params)
+    UserUpdater.new(current_user).update(user_params)
     redirect_to :back
   end
 
   private
+
+  def find_user
+    User.find_by(username: params[:id])
+  end
 
   def user_params
     params.require(:user).permit(

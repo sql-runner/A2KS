@@ -6,14 +6,8 @@ class VideosController < ApplicationController
   end
 
   def create
-    video = current_user.videos.new(find_video_params)
-
-    if video.save
-      ElasticTranscoder.new(video).transcode!
-      redirect_to dashboard_path
-    else
-      render :new
-    end
+    VideoUpdater.new(current_user).create(find_video_params)
+    redirect_to dashboard_path
   end
 
   def show
