@@ -1,18 +1,20 @@
-<%= form_for ([current_user, @video]), url: { action: "create" }, html: { multipart: true }  do |form| %>
-  <div>
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-    <%= form.label :tag_list, "Select A Tag" %>
-    <%= form.collection_select :tag_list, @tags, :name, :name %>
-  </div>
-  <div>
-    <%= form.label :description %>
-    <%= form.text_area :description %>
-  </div>
-  <div>
-    <%= form.file_field :media %>
-  </div>
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>
+<div class= "container">
+  <%= form_for ([current_user, @video]), url: { action: "create" }, html: { multipart: true }  do |form| %>
+    <div>
+      <%= form.label :name %>
+      <%= form.text_field :name %>
+      <%= form.label :tag_list, "Select A Tag" %>
+      <%= form.collection_select :tag_list, @tags, :name, :name %>
+    </div>
+    <div>
+      <%= form.label :description %>
+      <%= form.text_area :description %>
+    </div>
+    <div>
+      <%= form.file_field :media %>
+    </div>
+    <div>
+      <%= form.submit %>
+    </div>
+  <% end %>
+</div>

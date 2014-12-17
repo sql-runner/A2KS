@@ -7,12 +7,41 @@ body {
   overflow-x: hidden;
 }
 
-.activityfeed, .updateuser {
+.activityfeed, .addvideo, .updateuser, .footer {
   @include outer-container;
 }
 
- .addvideo {
-   @include outer-container;
+.header {
+
+  .container {
+    @include align-items(center);
+    @include display(flex);
+    padding-bottom: (1);
+    padding-top: (1);
+    padding-right: (1);
+    padding-left: (1);
+    width: 100%;
+  }
+
+}
+
+.app-nav li {
+  display: inline-block;
+  margin-right: (2);
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.location-search {
+  @include align-self(center);
+  @include flex(1);
+  margin: 0;
+
+  input[type="search"] {
+    margin: 0;
+  }
 }
 
 div.container {
