@@ -7,15 +7,17 @@
   </p>
 </div>
 
-<fieldset>
-  <p> Your Activity Feed </p>
-  <ul>
-    <%= render @activities %>
-  </ul>
+<fieldset class= "activityfeed">
+  <div>
+    <p> Your Activity Feed </p>
+    <ul>
+      <%= render @activities %>
+    </ul>
+  </div>
 </fieldset>
 
 
-<fieldset>
+<fieldset class= "updateuser">
   <%= form_for current_user do |form| %>
     <div>
       <%= form.text_area :bio_content %>
@@ -30,7 +32,9 @@
 </fieldset>
 
 <div class ="uservideos">
-  <%= button_to "Add Video", new_video_path, method: :get %>
+  <fieldset class= "addvideo">
+    <%= button_to "Add Video", new_video_path, method: :get %>
+  </fieldset>
   <div class="videotable">
     <ul>
       <%= render current_user.videos %>

@@ -3,6 +3,7 @@ class DashboardsController < ApplicationController
   end
 
   def show
-    @activities = current_user.recent_activities(5)
+    @activities = Activity.all.where(user_id: current_user).
+                    order("created_at DESC").limit(7)
   end
 end
