@@ -11,7 +11,7 @@ class VideoUpdater
     if @video.save
       update_activities
     else
-      render :new
+      false
     end
   end
 
