@@ -1,19 +1,21 @@
-<h1><%= @user.username %>'s Page</h1>
+<div class="bodycontainer">
+  <h1><%= @user.username %>'s Page</h1>
 
-<div class="userprofile">
-  <%= image_tag @user.avatar.url(:medium) %>
+  <div class="userprofilepic">
+    <%= image_tag @user.avatar.url(:medium) %>
+  </div>
   <p class="user-bio">
-    <%= @user.bio_content %>
+    User Bio: <%= @user.bio_content %>
   </p>
-</div>
 
-<div class="videotable">
-  <ul>
-    <% @user.videos.each do |video| %>
-      <li>
-        <p> <%= link_to video.name, user_video_path(@user, video) %> </p>
-        <p> <%= video.description %> </p>
-      </li>
-    <% end %>
-  </ul>
+  <div class="videotable">
+    <ul>
+      <% @user.videos.each do |video| %>
+        <li>
+          <p> <%= link_to video.name, user_video_path(@user, video) %> </p>
+          <p> <%= video.description %> </p>
+        </li>
+      <% end %>
+    </ul>
+  </div>
 </div>

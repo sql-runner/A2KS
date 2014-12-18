@@ -1,43 +1,44 @@
-<h1>This is <%= current_user.username %></h1>
+<div class="bodycontainer">
+  <h1>This is <%= current_user.username %></h1>
 
-<div class="userprofile">
-  <%= image_tag current_user.avatar.url(:medium) %>
-  <p class="user-bio">
-    <%= current_user.bio_content %>
-  </p>
-</div>
-
-<fieldset class= "activityfeed">
-  <div>
-    <p> Your Activity Feed </p>
-    <ul>
-      <%= render @activities %>
-    </ul>
+  <div class="userprofilepic">
+    <%= image_tag current_user.avatar.url(:medium) %>
   </div>
-</fieldset>
+    <p class="user-bio">
+     User Bio: <%= current_user.bio_content %>
+    </p>
 
-
-<fieldset class= "updateuser">
-  <%= form_for current_user do |form| %>
+  <fieldset class= "activityfeed">
     <div>
-      <%= form.text_area :bio_content %>
+      <p> Your Activity Feed </p>
+      <ul>
+        <%= render @activities %>
+      </ul>
     </div>
-    <div>
-      <%= form.file_field :avatar %>
-    </div>
-    <div>
-      <%= form.submit "Update User Info" %>
-    </div>
-  <% end %>
-</fieldset>
-
-<div class ="uservideos">
-  <fieldset class= "addvideo">
-    <%= button_to "Add Video", new_video_path, method: :get %>
   </fieldset>
-  <div class="videotable">
-    <ul>
-      <%= render current_user.videos %>
-    </ul>
+
+  <fieldset class= "updateuser">
+    <%= form_for current_user do |form| %>
+      <div>
+        <%= form.text_area :bio_content %>
+      </div>
+      <div>
+        <%= form.file_field :avatar %>
+      </div>
+      <div>
+        <%= form.submit "Update User Info" %>
+      </div>
+    <% end %>
+  </fieldset>
+
+  <div class ="uservideos">
+    <fieldset class= "addvideo">
+      <%= button_to "Add Video", new_video_path, method: :get %>
+    </fieldset>
+    <div class="videotable">
+      <ul>
+        <%= render current_user.videos %>
+      </ul>
+    </div>
   </div>
 </div>
