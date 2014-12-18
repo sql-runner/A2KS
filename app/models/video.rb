@@ -1,6 +1,7 @@
 class Video < ActiveRecord::Base
   include Actionable
   belongs_to :user
+  has_many :likes
   acts_as_taggable
 
   has_attached_file(

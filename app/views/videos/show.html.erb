@@ -10,4 +10,10 @@
 
 <div class = "videoshow">
   <p> <%= @video.description %> </p>
+  <% if current_user.liked_videos.include? @video %>
+    <%= button_to "Liked", video_like_path(@video), method: :delete %>
+  <% else %>
+    <%= button_to "Like", video_like_path(@video) %>
+  <% end %>
+  <p> <%= pluralize(@video.likes.count, "Like") %> </p>
 </div>
