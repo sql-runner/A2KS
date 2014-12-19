@@ -4,7 +4,6 @@ body {
   @include linear-gradient(to left, $lightblack, teal);
   background-attachment: fixed;
   background-repeat: no-repeat;
-  margin: 5;
   max-width: 100%;
   overflow-x: hidden;
   color: black;
@@ -13,6 +12,8 @@ body {
 // HEADER
 .header {
   @include outer-container;
+  margin-top: 2em;
+  margin-left: 20em;
 
   .container {
     @include align-items(center);
@@ -34,21 +35,31 @@ body {
   }
 }
 
-.app-nav li {
-  display: inline-block;
-  margin-right: (5em / 2);
+.app-nav, .bottom-nav {
+  margin-left: 3em;
+  li {
+    display: inline-block;
+    margin-right: (5em / 2);
 
-  &:last-child {
-    margin-right: 0;
+    &:last-child {
+      margin-right: 0;
+    }
   }
 }
+
+
 
 // SideBar
 
 .sidebar {
-  text-align: right;
+  position: fixed;
+  top: 5em;
+  left: 1.7em;
+  font-size: 1.3em;
 
-  
+  h3 {
+    font-size: 1.3em;
+  }
 }
 
 // Video
@@ -58,18 +69,25 @@ body {
   padding-bottom: 1em;
 }
 
-// Body
+// Footer
 
-.footer, .bodycontainer {
+.footer {
   @include outer-container;
   padding-top: 2em;
   padding-bottom: 2em;
 }
 
+// Body
+
+.bodycontainer {
+  @include outer-container;
+  padding-top: 2em;
+  padding-bottom: 2em;
+  margin-left: 20em;
+}
+
 fieldset {
-  @include linear-gradient(to left, $lightblack, teal);
-  background-attachment: fixed;
-  background-repeat: no-repeat;
+  background-color: #7F5417;
   border-color: black;
   width: 70%;
 }
