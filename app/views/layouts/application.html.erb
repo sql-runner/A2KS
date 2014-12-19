@@ -12,17 +12,26 @@
     </script>
   </head>
   <body>
+    <nav class="sidebar">
+      <ol>
+        <h3>Categories</h3>
+        <% @tags.each do |tag| %>
+          <li>
+          <%= link_to tag.name, search_path(search: tag.name) %>
+          </li>
+        <% end %>
+      </ol>
+    </nav>
     <header class="header">
       <div class="container">
-        <%= form_tag search_path, method: :get, class: "one" do %>
+        <%= form_tag search_path, method: :get do %>
           <%= search_field_tag :search, params[:search],
             placeholder: "SEARCH", class: "video-search" %>
-          <%= submit_tag "GO" %>
         <% end %>
         <nav class="app-nav">
           <ol>
             <li>
-              <%= link_to "Home", root_path %>
+              <%= button_to "Home", root_path, method: :get %>
             </li>
             <% if signed_in? %>
               <li>
@@ -39,6 +48,9 @@
                 <%= button_to "Sign up", new_user_path, method: :get %>
               </li>
             <% end %>
+            <li>
+              <h3>~ A2KS ~</h3>
+            </li>
           </ol>
         </nav>
       </div>
@@ -46,9 +58,17 @@
 
     <%= yield %>
 
-    <fieldset class="footer">
-      <%= link_to "About", page_path("about"), class: "one" %>
-      <%= link_to "Contact", page_path("contact"), class: "two" %>
-    </fieldset>
+    <div class= "footer">
+      <nav class="bottom-nav">
+        <ol>
+          <li>
+            <%= button_to "About", page_path("about"), method: :get %>
+          </li>
+          <li>
+            <%= button_to "Contact", page_path("contact"), method: :get %>
+          </li>
+        </ol>
+      </nav>
+    </div>
   </body>
 </html>
