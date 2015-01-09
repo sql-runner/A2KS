@@ -15,7 +15,7 @@ class UsersController < ApplicationController
 
     if @user.valid?
       sign_in(@user)
-      redirect_to user_path(@user)
+      redirect_to dashboard_path
     else
       render :new
     end

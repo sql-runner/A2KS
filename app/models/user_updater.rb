@@ -24,7 +24,7 @@ class UserUpdater
     if user.avatar_updated_at_changed?
       Activity.create(
        event: user,
-       title: "Avatar Updated",
+       title: "Avatar Updated!",
        user: user
       )
     end

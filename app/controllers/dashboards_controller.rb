@@ -1,5 +1,6 @@
 class DashboardsController < ApplicationController
   def index
+    @video = Video.find_by(id: 1)
   end
 
   def show

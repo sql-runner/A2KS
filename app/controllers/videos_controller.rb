@@ -1,5 +1,6 @@
 class VideosController < ApplicationController
-  before_action :require_login
+  before_action :require_login, only: [:new, :create]
+  before_action :check_sign_in, only: [:show]
 
   def new
     @video = Video.new
@@ -21,6 +22,12 @@ class VideosController < ApplicationController
   end
 
   private
+
+  def check_sign_in
+    unless signed_in?
+      redirect_to new_session_path
+    end
+  end
 
   def find_video
     Video.find(params[:id])
